@@ -4,10 +4,10 @@ This repository contains Jupyter notebooks to request analytics and retrieve bes
 
 - Reference data
 - Corporate actions
-- Historical market data and calculations: Daily and tick data
+- Historical financial data and calculations: daily and tick data
 - Best executions samples
-- Future roll strategies, trading strategies
-- Data monitoring such as storage and normalization metrics
+- Future roll strategies and trading strategies
+- Monitoring dashboard including data storage and normalization metrics
 
 ## Systemathics API version
 
