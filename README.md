@@ -15,7 +15,7 @@ This repository contains Jupyter notebooks to request analytics and retrieve bes
 
 ## Useful links
 
-- [Systemathics website](https://systemathics.com) 
+- [Systemathics website](https://www.systemathics.com/) 
 -  [Systemathics data offer website](https://systemathics.cloud/)
-- [Ganymede](https://systemathics.cloud): credentials required to access Jupyter environment
+- [Ganymede](https://ganymede.cloud): credentials required to access Jupyter environment
 - [Documentation](https://systemathics.cloud/api-documentation.html): includes API documentation and tutorials (authentication, services, request parameters, reply formats...)
