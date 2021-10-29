@@ -1,1 +1,1 @@
-This is where daily data is exported
+This is where bars data is exported
