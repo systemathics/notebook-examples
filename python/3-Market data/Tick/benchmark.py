@@ -12,8 +12,8 @@ import systemathics.apis.type.shared.v1.date_interval_pb2 as dateinterval
 import systemathics.apis.type.shared.v1.time_interval_pb2 as timeinterval
 import systemathics.apis.services.tick.v1.tick_trades_and_book_pb2 as tick_trades_and_book
 import systemathics.apis.services.tick.v1.tick_trades_and_book_pb2_grpc as tick_trades_and_book_service
-import systemathics.helpers.token_helpers as token_helpers
-import systemathics.helpers.channel_helpers as channel_helpers
+import systemathics.apis.helpers.token_helpers as token_helpers
+import systemathics.apis.helpers.channel_helpers as channel_helpers
 
 token = token_helpers.get_token()
 print(token)
