@@ -1,1 +1,8 @@
 .ipynb_checkpoints/
+
+# VS Code personal config folders
+.vscode
+
+# Benchmark binaries and objects folders
+**/Benchmarker/bin
+**/Benchmarker/obj
