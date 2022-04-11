@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# pip install googleapis-common-protos protobuf grpcio pandas systemathics.apis
+# pip install googleapis-common-protos protobuf grpcio pandas
 
 import grpc
 import asyncio
