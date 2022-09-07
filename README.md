@@ -1,29 +1,43 @@
 # Ganymede | on-demand financial data
 
-This repository contains Jupyter notebooks to request analytics and retrieve bespoke datasets by calling Systemathics API. Samples and building blocks are available to help you designing your bespoke analytics and data requests:
+# About Ganymede
+
+Built as cloud native, Ganymede is a fully managed platform, continuously updated with high-quality, curated,
+and cross validated data. Ganymede is purpose built for the financial data markets ever increasing data volumes,
+allowing clients to query against large data sets, including tick-by-tick, sampled, daily, corporate actions,
+ESG and reference data. Packed with a broad range of analytics, the solution is optimized for fast response times,
+supports full order book natively and allows fine grained/customizable trade and quote conditions mapping and filtering.
+
+# About this repository 
+
+This repository contains Jupyter notebooks to request analytics and retrieve bespoke datasets by calling Ganymede gRPC API. Samples and building blocks are available to help you designing your bespoke analytics and data requests:
 
 - Reference data
 - Corporate actions
-- Historical financial data and calculations: daily and tick data
-- Best executions samples
+- Historical financial data and calculations: daily, intraday and tick data
+- Best execution
 - Future roll strategies and trading strategies
-- Monitoring dashboard including data storage and normalization metrics
+- Monitoring dashboards including data storage and normalization metrics
 
-## Best practices
+Example are organized in a per language per topic way:
+- [Python](/python/)
+- [C#](/csharp/)
+- [F#](/fsharp/)
 
-Please find below some useful hints for Ganymede, the JupyterLab environment.
-* `Stop non used kernels`: when you are done with a Jupyter notebook, make sure you stop the kernel to take full advantage of available resources. To do so, navigate to **Running terminals and kernels** on the top left sidebar and **shut down** the chosen notebook.
-* `Log-out`: once you finished working on your JupyterLab environment, please go to **File** on the top left of the main menu and click **Log out**.
-* `Token regeneration`: access to Ganymede is granted through an *authentication token* with a limited lifetime. When running a notebook and an error "Unauthenticated" raises, please make sure your *Log out* and re-login. To check your token validity, refer to [this link](https://jwt.io/)  and copy/paste your token, which is generated in the *Step 2* of every Jupyter notebooks.
+There also are a few helpers to plug common development environments to Ganymede:
+- Have a look [here](/remoteaccess/)
 
-## Systemathics API version
+## Current Ganymede API version
 
 [![PyPI version](https://badge.fury.io/py/systemathics.apis.svg)](https://badge.fury.io/py/systemathics.apis) [![NuGet version](https://badge.fury.io/nu/systemathics.apis.svg)](https://badge.fury.io/nu/systemathics.apis)
 
 ## Useful links
 
-- [Systemathics website](https://www.systemathics.com/) 
-- [Systemathics data offer website](https://ganymede.cloud/)
-- [Ganymede](https://ganymede.cloud/data/): credentials required to access JupyterLab environment
-- [Documentation](https://ganymede.cloud/api-documentation.html): includes API documentation and tutorials (authentication, services, request parameters, reply formats...)
+- [Ganymede](https://ganymede.cloud/) portal (registered users logon page is [here](https://ganymede.cloud/data/))
+- Have a look at the [documentation](https://ganymede.cloud/api-documentation.html) (API reference and tutorials)
 
+## About us
+
+[Systemathics](https://systemathics.com) is a French fintech founded in 2008 developing its innovative products with the highest quality standards 100% in France.
+Our main mission is to provide global investors with a complete end-to-end solution to systematize alpha generation in a robust way.
+From data pre and post trade analysis, back-testing, risk assessment and signal generation to day-to-day execution in production and everything in between.
