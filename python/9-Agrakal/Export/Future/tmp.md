@@ -1,1 +1,0 @@
-This is where bars data is exported
