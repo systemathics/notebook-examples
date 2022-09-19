@@ -19,7 +19,7 @@ import sys
 from nbconvert.preprocessors import ExecutePreprocessor
 from nbconvert.exporters import TemplateExporter
 from nbconvert.exporters import HTMLExporter
-from nbconvert.exporters import MarkdownExporter
+#from nbconvert.exporters import MarkdownExporter
 
 # Configuration
 generatedStatic = "_generated_static_html"
@@ -49,12 +49,12 @@ def execute_notebook(notebook_path:str, notebook_output_path: str):
             # reprocess code cells 
             for cell in nb.cells:
                 if cell.cell_type == 'code':
-                    if cell.source.__contains__('import matplotlib'): # Force SVG figures
-                        i += 1
-                        cell.source = py_matplotlib.format(i, i) + cell.source
-                    if cell.source.__contains__('import plotly'): # Force SVG figures
-                        i += 1
-                        cell.source = py_plotly.format(i, i) + cell.source
+                    # if cell.source.__contains__('import matplotlib'): # Force SVG figures
+                    #     i += 1
+                    #     cell.source = py_matplotlib.format(i, i) + cell.source
+                    # if cell.source.__contains__('import plotly'): # Force SVG figures
+                    #     i += 1
+                    #     cell.source = py_plotly.format(i, i) + cell.source
                     if cell.source.__contains__('/home/jovyan'):
                         cell.source = cell.source.replace('/home/jovyan', os.environ["HOME"]) # Fix nuget packages home
 
@@ -65,7 +65,7 @@ def execute_notebook(notebook_path:str, notebook_output_path: str):
         # execute temp notebook
         with open(notebook_path_temp) as f:
             nb = nbformat.read(f, as_version=4)
-            ep = ExecutePreprocessor(timeout=180)
+            ep = ExecutePreprocessor(timeout=600)
             pwd = os.getcwd()
             try:
                 logging.info("Changing to directory {}".format(notebook_output_dir))
@@ -101,6 +101,22 @@ def converted_notebook_path(notebook_path: str, exporter: TemplateExporter):
     notebook_output_path = notebook_output_path.replace(']','')
     notebook_output_path = notebook_output_path.replace(' ','-')
     return os.path.splitext(notebook_output_path)[0] + exporter.file_extension
+
+"""
+Get the expected converted 'input file' path for a given file (example: my_notebook_input.csv)
+Arguments:
+    inputfile_path: The input notebook path
+    exporter: The exporter
+"""
+def converted_inputfile_path(notebook_path: str):
+    current_dir = os.getcwd()
+    inputfile_path = os.path.realpath(notebook_path)
+    inputfile_path = inputfile_path.replace(current_dir, "{}/{}".format(current_dir, generatedStatic))
+    inputfile_path = inputfile_path.lower()
+    inputfile_path = inputfile_path.replace('[','')
+    inputfile_path = inputfile_path.replace(']','')
+    inputfile_path = inputfile_path.replace(' ','-')
+    return inputfile_path
 
 """
 Get the expected output file path for a given notebook
@@ -165,6 +181,16 @@ def convert_notebook(notebook_path: str, exporter: TemplateExporter):
 def statify(notebook_path: str, templateExporter: TemplateExporter):
     notebook_output_path = executed_notebook_path(notebook_path)    
     try:
+        # If an 'input' directory is there next to the notebook, copy its content
+        inputs_dir = "{}/input/*".format(os.path.dirname(notebook_path))
+        inputs = glob.glob(inputs_dir, recursive=True)
+        for input in inputs:
+            copy = converted_inputfile_path(input)
+            print("Copying\n  {} to\n  {}".format(input, copy))
+            copy_dir = os.path.dirname(copy)
+            os.makedirs(copy_dir, exist_ok=True)
+            shutil.copyfile(input, copy)
+
         # Execute the notebook
         logging.info("Executing notebook {} and saving results to {}".format(notebook_path, notebook_output_path))
         execute_notebook(notebook_path, notebook_output_path)
@@ -183,7 +209,7 @@ def statify(notebook_path: str, templateExporter: TemplateExporter):
             q = content
             q = re.sub(r'Bearer ([a-zA-Z0-9\._-]*)', 'Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoibm90IGEgcmVhbCB0b2tlbiJ9.N3ar08-nYnP33H210Pp74lraRRW1A052iXrVnssAf22nQes-SmD9ngjxoBiGOw4H6UV2ch29h6Qi4Nd4YaTs5A', q, flags=re.MULTILINE) # valid JWT giving access to nothing
             q = re.sub(os.environ['HOME'], '~', q, flags=re.MULTILINE) # replace home dir string by ~
-            css_script = re.compile('<\s*style[^>]*>.*?<\s*/\s*style\s*>', re.S | re.I)
+            css_script = re.compile('<\s*style type="text/css">.*?<\s*/\s*style\s*>', re.S | re.I) # factorize Jupyter css, it's big (800+KB)
             q = css_script.sub('<link rel="stylesheet" type="text/css" href="http://systemathics.io/stylesheets/jupyter.css" />', q)
             if len(q) != len(content):
                 content_new = q
@@ -205,15 +231,12 @@ logging.basicConfig(stream = sys.stdout,
                     format = "%(levelname)s %(asctime)s - %(message)s", 
                     level = logging.INFO)
 
-#testing
-#statify("csharp/3-Market data/Daily/[Daily] bars.ipynb")
-
 argc = len(sys.argv)
 if argc == 2:
     # statify just the given notebook
     statify(sys.argv[1], templateExporter)
 elif argc == 1:
-    # Create the files list to process
+    # Create the notebooks files list to process
     files = glob.glob('python/**/*.ipynb', recursive=True)
     files = files + glob.glob('csharp/**/*.ipynb', recursive=True)
     files = files + glob.glob('fsharp/**/*.ipynb', recursive=True)
