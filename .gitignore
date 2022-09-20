@@ -1,4 +1,5 @@
 .ipynb_checkpoints/
 output/
-_generated_static*/
+_generated*/
 .vscode
+.envrc
