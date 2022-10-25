@@ -39,9 +39,12 @@ find $ROOT_DIR -name "*.ipynb" -print0 | xargs -0 sed -i 's|https://dev\.ganymed
 find $ROOT_DIR -name "*.md" -print0 | xargs -0 sed -i 's|https://dev\.ganymede\.software|https://ganymede.cloud|g'
 sed -i 's|ganymede-dev|ganymede-prod|g' remoteaccess/env.sh
 sed -i 's|ganymede-dev|ganymede-prod|g' remoteaccess/env.ps1
+sed -i 's|ganymede-dev|ganymede-prod|g' remoteaccess/jupyter-lab-windows.cmd
+sed -i 's|ganymede-dev|ganymede-prod|g' get-auth0-token.py
 sed -i 's|dev\.systemathics\.software|ganymede.cloud|g' remoteaccess/env.sh
 sed -i 's|dev\.systemathics\.software|ganymede.cloud|g' remoteaccess/env.ps1
-
+sed -i 's|dev\.systemathics\.software|ganymede.cloud|g' remoteaccess/jupyter-lab-windows.cmd
+sed -i 's|dev\.systemathics\.software|ganymede.cloud|g' get-auth0-token.py
 if [ "$branch" = "dev" ] ; then
   # apply pre-release mention
   find $ROOT_DIR/csharp -name "*.ipynb" -print0 | xargs -0 sed -i 's/nuget: Systemathics.Apis/nuget: Systemathics.Apis, 0.\*-pre\*/'
@@ -53,8 +56,12 @@ if [ "$branch" = "dev" ] ; then
   find $ROOT_DIR -name "*.md" -print0 | xargs -0 sed -i 's|https://ganymede\.cloud|https://dev.ganymede.software|g'
   sed -i 's|ganymede-prod|ganymede-dev|g' remoteaccess/env.sh
   sed -i 's|ganymede-prod|ganymede-dev|g' remoteaccess/env.ps1
+  sed -i 's|ganymede-prod|ganymede-dev|g' remoteaccess/jupyter-lab-windows.cmd
+  sed -i 's|ganymede-prod|ganymede-dev|g' get-auth0-token.py
   sed -i 's|ganymede\.cloud|dev.systemathics.software|g' remoteaccess/env.sh
   sed -i 's|ganymede\.cloud|dev.systemathics.software|g' remoteaccess/env.ps1
+  sed -i 's|ganymede\.cloud|dev.systemathics.software|g' remoteaccess/jupyter-lab-windows.cmd
+  sed -i 's|ganymede\.cloud|dev.systemathics.software|g' get-auth0-token.py
 fi
 
 du -sh csharp/
