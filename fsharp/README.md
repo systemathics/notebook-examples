@@ -12,6 +12,6 @@ The examples are grouped on a per topic basis, feel free to browse through:
 - [Analytics](./4-Analytics/) samples (applying analytics to daily data, intraday data, tick data)
 - [Best execution](./5-Best%20execution/) samples (interval, point-in-time)
 
-It's also advised to have a look at the [documentation](https://dev.ganymede.software/api-documentation.html).
+It's also advised to have a look at the [documentation](https://dev.systemathics.eu/api-documentation.html).
 
 There are also plenty of other examples in [python](/python/) and in [C#](/csharp/).

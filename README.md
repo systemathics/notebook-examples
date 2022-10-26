@@ -33,8 +33,8 @@ There also are a few helpers to plug common development environments to Ganymede
 
 ## Useful links
 
-- [Ganymede](https://dev.ganymede.software/) portal (registered users logon page is [here](https://dev.ganymede.software/data/))
-- Have a look at the [documentation](https://dev.ganymede.software/api-documentation.html) (API reference and tutorials)
+- [Ganymede](https://dev.systemathics.eu/) portal (registered users logon page is [here](https://dev.systemathics.eu/data/))
+- Have a look at the [documentation](https://dev.systemathics.eu/api-documentation.html) (API reference and tutorials)
 
 ## About us
 

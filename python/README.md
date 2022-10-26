@@ -13,6 +13,6 @@ The examples are grouped on a per topic basis, feel free to browse through:
 - [Best execution](./5-Best%20execution/) samples (interval, point-in-time)
 - [Strategies](./6-Strategies/) samples (daily, tick-by-tick) with signal generation.
 
-It's also advised to have a look at the [documentation](https://dev.ganymede.software/api-documentation.html).
+It's also advised to have a look at the [documentation](https://dev.systemathics.eu/api-documentation.html).
 
 There are also plenty of other examples in [C#](/csharp/) and in [F#](/fsharp/).

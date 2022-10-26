@@ -14,6 +14,6 @@ The examples are grouped on a per topic basis, feel free to browse through:
 - [Future roll](./6-Future%20roll/) samples (by maturity, by market activity)
 - [TCA](./7-TCA/) samples (PRIIPS)
 
-It's also advised to have a look at the [documentation](https://dev.ganymede.software/api-documentation.html).
+It's also advised to have a look at the [documentation](https://dev.systemathics.eu/api-documentation.html).
 
 There are also plenty of other examples in [python](/python/) and in [F#](/fsharp/).
