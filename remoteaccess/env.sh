@@ -1,8 +1,6 @@
-# Fill the variables below
-export CLIENT_ID="<please-fill-in-here>"
-export CLIENT_SECRET="<please-fill-in-here>"
-#export TENANT="<please-fill-in-here-if-non-default>"
-#export AUDIENCE="<please-fill-in-here-if-non-default>"
-#export GRPC_APIS="<please-fill-in-here-if-non-default>"
+export AUTH0_TOKEN="__AUTH0_TOKEN__"
+export AUDIENCE="https://ganymede-prod"
+export TENANT="ganymede-prod.eu.auth0.com"
+export GRPC_APIS="grpc.ganymede.cloud"
 
-env | egrep '(CLIENT_ID|CLIENT_SECRET|AUDIENCE|TENANT|GRPC_APIS)'
+env | egrep '(AUTH0_TOKEN|AUDIENCE|TENANT|GRPC_APIS)'

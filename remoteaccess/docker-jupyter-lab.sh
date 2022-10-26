@@ -17,8 +17,7 @@ if [ "$1" = "python" ] ; then
 
   docker run -it --rm -p $PORT:8888 \
            -e JUPYTER_TOKEN=jupyter \
-           -e CLIENT_ID="$CLIENT_ID" \
-           -e CLIENT_SECRET="$CLIENT_SECRET" \
+           -e AUTH0_TOKEN="$AUTH0_TOKEN" \
            -e AUDIENCE="$AUDIENCE" \
            -e TENANT="$TENANT" \
            -e GRPC_APIS="$GRPC_APIS" \

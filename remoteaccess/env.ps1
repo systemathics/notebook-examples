@@ -1,9 +1,7 @@
-# Fill the variables below
-$env:CLIENT_ID="<please-fill-in-here>"
-$env:CLIENT_SECRET="<please-fill-in-here>"
-#$env:TENANT="<please-fill-in-here-if-non-default>"
-#$env:AUDIENCE="<please-fill-in-here-if-non-default>"
-#$env:GRPC_APIS="<please-fill-in-here-if-non-default>"
+$env:AUTH0_TOKEN="__AUTH0_TOKEN__"
+$env:AUDIENCE="https://ganymede-prod"
+$env:TENANT="ganymede-prod.eu.auth0.com"
+$env:GRPC_APIS="grpc.ganymede.cloud"
 
-[regex]$r = "(CLIENT_ID|CLIENT_SECRET|AUDIENCE|TENANT|GRPC_APIS)"
+[regex]$r = "(AUTH0_TOKEN|AUDIENCE|TENANT|GRPC_APIS)"
 Get-ChildItem env: | ?{ $r.IsMatch($_.Name) }
