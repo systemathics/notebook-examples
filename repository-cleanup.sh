@@ -65,9 +65,9 @@ if [ "$branch" = "dev" ] ; then
 fi
 if [ "$branch" = "prod" ] ; then
   # apply version
-  find $ROOT_DIR/csharp -name "*.ipynb" -print0 | xargs -0 sed -i 's/nuget: Systemathics.Apis/nuget: Systemathics.Apis, 2.32.\*/'
-  find $ROOT_DIR/fsharp -name "*.ipynb" -print0 | xargs -0 sed -i 's/nuget: Systemathics.Apis/nuget: Systemathics.Apis, 2.32.\*/'
-  find $ROOT_DIR/python -name "*.ipynb" -print0 | xargs -0 sed -i 's/pip install systemathics.apis/pip install systemathics.apis==2.32.\*/'
+  find $ROOT_DIR/csharp -name "*.ipynb" -print0 | xargs -0 sed -i 's/nuget: Systemathics.Apis/nuget: Systemathics.Apis, 2.37.\*/'
+  find $ROOT_DIR/fsharp -name "*.ipynb" -print0 | xargs -0 sed -i 's/nuget: Systemathics.Apis/nuget: Systemathics.Apis, 2.37.\*/'
+  find $ROOT_DIR/python -name "*.ipynb" -print0 | xargs -0 sed -i 's/pip install systemathics.apis/pip install systemathics.apis==2.37.\*/'
 fi
 
 du -sh csharp/
