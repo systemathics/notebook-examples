@@ -62,7 +62,7 @@ and configure the pull behaviour:
 
 `git config pull.rebase true`
 
-You can no push and pull as needed
+You can now push and pull as needed
 
 ## About us
 
