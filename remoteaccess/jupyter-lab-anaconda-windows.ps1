@@ -5,3 +5,4 @@ $env = Join-Path $env "env.ps1"
 
 . $env
 & jupyter-lab.exe $root
+ 

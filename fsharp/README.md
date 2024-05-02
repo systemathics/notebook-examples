@@ -14,4 +14,4 @@ The examples are grouped on a per topic basis, feel free to browse through:
 
 It's also advised to have a look at the [documentation](https://ganymede.cloud/api-documentation.html).
 
-There are also plenty of other examples in [python](/python/) and in [C#](/csharp/).
+There are also plenty of other examples in [python](/python/) and in [C#](/csharp/). 

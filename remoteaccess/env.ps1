@@ -5,3 +5,4 @@ $env:GRPC_APIS="grpc.ganymede.cloud"
 
 [regex]$r = "(AUTH0_TOKEN|AUDIENCE|TENANT|GRPC_APIS)"
 Get-ChildItem env: | ?{ $r.IsMatch($_.Name) }
+ 

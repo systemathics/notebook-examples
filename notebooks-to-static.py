@@ -307,3 +307,4 @@ elif argc == 1:
             pool.map(statify1, files_to_process)
         finally:
             pool.close()
+ 

@@ -4,3 +4,4 @@ export TENANT="ganymede-prod.eu.auth0.com"
 export GRPC_APIS="grpc.ganymede.cloud"
 
 env | egrep '(AUTH0_TOKEN|AUDIENCE|TENANT|GRPC_APIS)'
+ 

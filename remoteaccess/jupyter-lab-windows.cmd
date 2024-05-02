@@ -7,3 +7,4 @@ set GRPC_APIS="grpc.ganymede.cloud"
 
 REM Launches Jupyter lab from the python notebooks folder
 jupyter-lab.exe ..\python
+ 

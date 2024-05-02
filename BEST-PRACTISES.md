@@ -9,3 +9,4 @@
 
 * `Token regeneration`: access to Ganymede is granted through an *authentication token* with a limited lifetime. When running a notebook and an error "Unauthenticated" raises, please make sure your *Log out* and re-login. To check your token validity, refer to [this link](https://jwt.io/)  and copy/paste your token, which is generated in the *Step 2* of every Jupyter notebooks.
 
+ 

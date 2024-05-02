@@ -58,3 +58,4 @@ regexreplace(jlwcmd, 'AUTH0_TOKEN=.*', 'AUTH0_TOKEN="{}"'.format(token))
 # Done
 print()
 print("AUTH0_TOKEN={}".format(token))
+ 
