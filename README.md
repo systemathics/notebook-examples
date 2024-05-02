@@ -36,6 +36,34 @@ There also are a few helpers to plug common development environments to Ganymede
 - [Ganymede](https://ganymede.cloud/) portal (registered users logon page is [here](https://ganymede.cloud/data/))
 - Have a look at the [documentation](https://ganymede.cloud/api-documentation.html) (API reference and tutorials)
 
+## Github setup
+
+Create an ssh key in jupyterhub : 
+
+`ssh-keygen -t ed25519 -C "your_name@email_provider.com"`
+
+Get the public content of key:
+
+`cat /home/jovyan/.ssh/id_ed25519.pub`
+
+Add it to your [gihub ssh keys](https://github.com/settings/keys) idealy with the date so you can delete it later.
+
+Depending of your branch, configure the remote :
+
+- for prod :
+
+`git branch --set-upstream-to=origin/prod prod`
+
+- for dev:
+
+`git branch --set-upstream-to=origin/dev dev`
+
+and configure the pull behaviour:
+
+`git config pull.rebase true`
+
+You can no push and pull as needed
+
 ## About us
 
 [Systemathics](https://systemathics.com) is a French fintech founded in 2008 developing its innovative products with the highest quality standards 100% in France.
