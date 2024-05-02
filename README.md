@@ -48,15 +48,9 @@ Get the public content of key:
 
 Add it to your [gihub ssh keys](https://github.com/settings/keys) idealy with the date so you can delete it later.
 
-Depending of your branch, configure the remote :
-
-- for prod :
+Configure the remote :
 
 `git branch --set-upstream-to=origin/prod prod`
-
-- for dev:
-
-`git branch --set-upstream-to=origin/dev dev`
 
 and configure the pull behaviour:
 
